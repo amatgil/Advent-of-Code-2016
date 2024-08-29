@@ -7,18 +7,12 @@ Step ← (
   /(⨬(+)(⊙◌)>√2⌵+,,)         # Where do we end up?
 )
 
-# In complex form, not yet turned into numbers
-
 Solve ← (
   :⇌[1_2_3 4_5_6 7_8_9]                       # Input numpad (in that order)
   ⇌◌◌⍢(⊙⟜⊂:Step ⊙:°⊂|≠0⧻) ⊜□≠@\n. :⊙: ℂ0 0 [] # Generate positions in complex form
   ⋕♭∵°⋕⊡≡(⊂°ℂ)+ℂ1 1
 ) # Decode complex values 
 
-$ ULL
-$ RRDDD
-$ LURDL
-$ UUUUD
-⍤":3" =1985 Solve
+⍤":3" =1985 Solve "ULL\nRRDDD\nLURDL\nUUUUD\n"
 
-$"Part 1: '_'" Solve ↘¯1 &fras "input.txt"
+$"Part 1 answer: _" Solve ↘¯1 &fras "input.txt"
