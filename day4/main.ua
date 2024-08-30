@@ -17,11 +17,9 @@ Decrypt ← ⍚(+@a◿26+-@a:)◿26⍜⇌(⋕°□°⊂)⊜□≠@-.
 
 Part₁ ← /+⋕▽≡(IsValid°□)
 Part₂ ← (
-  ⊃(⊙◌≡(IsValid°□)               # Valid ones
-  | ⍚(Decrypt °□⊢⊜□↧⊃(≠@[|≠@]).) # Their decrypted names
-  | ⍚(°□⊢↘1⇌⊜□↧↧⊃(≠@-|≠@[|≠@]).)
-  )                                       # Their IDs
-  ∩▽⊙:.                                   # Filter fake from both decypted and IDS
+  ⊃(⍚(Decrypt °□⊢⊜□↧⊃(≠@[|≠@]).) # Their decrypted names
+  | ⍚(°□⊢↘1⇌⊜□↧↧⊃(≠@-|≠@[|≠@]).) # Their IDs
+  )
   ⊚≡(≍{"northpole" "object" "storage"}°□) # Index (of valids) of goal
   ⋕°□⊡                                    # Get final value and make it pretty
 )
