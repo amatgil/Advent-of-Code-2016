@@ -1,1 +1,1 @@
-"Hello, World!"
+"This need an md5 function? why."
