@@ -1,7 +1,11 @@
 # Experimental!
 # (chunks is experimental but also deprecated in the newest dev)
 
-Parse ← ↯∞_3⊜⋕≠@\s.▽≠@\n.
+Parse ← (
+  ▽≠@\n.  # Remove all newlines
+  ⊜⋕≠@\s. # Get all numers
+  ↯∞_3    # Reshape
+)
 
 Part₁ ← (
   Parse
