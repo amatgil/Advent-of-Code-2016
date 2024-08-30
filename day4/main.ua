@@ -1,9 +1,11 @@
+# Takes "bbb-aaaaa-z-y-x-123[abxyz] and returns {validness ID}
 IsValid ← (
-  ∩≡°□°⊟⊜□↧⊃(≠@[|≠@]).
-  ▽⊙:¬⟜▽↧⊃(≥@0|≤@9).. # Now: letters ID checksum
-  ⊏⍏.▽↧⊃(≥@a|≤@z).
-  ⊏⍖⊃(≡/-◫2⊂⊃(⊚|⧻)◰|⊏⊚◰.)
-  ≍⊙:↙5)
+  ∩≡°□°⊟⊜□↧⊃(≠@[|≠@]).    # Split letters from checksum
+  ▽⊙:¬⟜▽↧⊃(≥@0|≤@9)..     # Letters ID checksum
+  ⊏⍏.▽↧⊃(≥@a|≤@z).        # Filter out dashes and sort
+  ⊏⍖⊃(≡/-◫2⊂⊃(⊚|⧻)◰|⊏⊚◰.) # Sort by frequency
+  ≍⊙:↙5                   # Does checksum match?
+)
 
 Decrypt ← ⍚(+@a◿26+-@a:)◿26⍜⇌(⋕°□°⊂)⊜□≠@-.
 
@@ -24,6 +26,4 @@ Part₂ ← (
   ⋕°□⊡                                    # Get final value and make it pretty
 )
 
-↘¯1 ⊜□≠@\n.&fras "input.txt"
-
-$"Part 1: '_'; Part2: '_'" ⊃(Part₁|Part₂)
+$"Part 1: '_'; Part2: '_'" ⊃(Part₁|Part₂) ↘¯1 ⊜□≠@\n.&fras "input.txt"
