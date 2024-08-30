@@ -11,4 +11,22 @@ IsValid ← (
 ⍤":3"≍{0 "200"}⊟∩□ IsValid "totally-real-room-200[decoy]"
 
 Part₁ ← /+⋕▽≡(IsValid°□)
-Part₁ ↘¯1 ⊜□≠@\n.&fras "input.txt"
+# $"Part 1 sol: _"Part₁ ↘¯1 ⊜□≠@\n.&fras "input.txt"
+
+Decrypt ← ⍚(+@a◿26+-@a:)◿26⍜⇌(⋕°□°⊂)⊜□≠@-.
+
+⍤":3"≍{"very" "encrypted" "name"} Decrypt "qzmt-zixmtkozy-ivhz-343"
+
+# "bbb-aaaaa-z-y-x-123[abxyz]"
+
+# F ← Decrypt? °□⊢?⊜□?↧⊃(≠@[|≠@]).?
+# ⊃(⊙◌≡(IsValid°□)
+# | ⍚(Decrypt ⊢⊜□?↧⊃(≠@[|≠@])?)?
+# )? ↘¯1 ⊜□≠@\n.&fras "input.txt"
+#
+# ⍚F ↘¯1 ⊜□≠@\n. &fras "input.txt"
+
+⊃(⊙◌≡(IsValid°□)
+| ⍚(Decrypt? °□⊢?⊜□?↧⊃(≠@[|≠@]).)
+)? ↘¯1 ⊜□≠@\n.&fras "input.txt"
+▽
