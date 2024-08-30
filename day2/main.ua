@@ -10,7 +10,7 @@ Step₁ ← (
 Part₁ ← (
   :⇌[1_2_3 4_5_6 7_8_9]                        # Input numpad (in that order)
   ⇌◌◌⍢(⊙⟜⊂:Step₁ ⊙:°⊂|≠0⧻) ⊜□≠@\n. :⊙: ℂ0 0 [] # Generate positions in complex form
-  ⋕♭∵°⋕⊡≡(⊂°ℂ)+ℂ1 1
+  ♭∵°⋕⊡≡(⊂°ℂ)+ℂ1 1
 ) # Decode complex values 
 
 # ======== PART 2 ==========
@@ -29,7 +29,7 @@ Part₂ ← (
 ) # Decode complex values 
 
 # ======== TESTS AND MAIN ==========
-⍤"Part 1 fails" =1985? Part₁ "ULL\nRRDDD\nLURDL\nUUUUD\n"
+⍤"Part 1 fails" ≍"1985" Part₁ "ULL\nRRDDD\nLURDL\nUUUUD\n"
 ⍤"Part 2 fails" ≍"5DB3" Part₂ "ULL\nRRDDD\nLURDL\nUUUUD\n"
 
 $"Part 1 sol: _" Part₁ ↘¯1 &fras "input.txt"
