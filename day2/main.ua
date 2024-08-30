@@ -29,8 +29,8 @@ Part₂ ← (
 ) # Decode complex values 
 
 # ======== TESTS AND MAIN ==========
-⍤"Part 1 fails" ≍"5DB3" Part₂ "ULL\nRRDDD\nLURDL\nUUUUD\n"
-⍤"Part 2 fails" =1985 Part₁ "ULL\nRRDDD\nLURDL\nUUUUD\n"
+⍤"Part 1 fails" =1985? Part₁ "ULL\nRRDDD\nLURDL\nUUUUD\n"
+⍤"Part 2 fails" ≍"5DB3" Part₂ "ULL\nRRDDD\nLURDL\nUUUUD\n"
 
 $"Part 1 sol: _" Part₁ ↘¯1 &fras "input.txt"
 $"Part 2 sol: _" Part₂ ↘¯1 &fras "input.txt"
