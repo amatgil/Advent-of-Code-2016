@@ -1,4 +1,6 @@
-# Commands:
+# Experimental!
+# Experimental because chunks (which is now deprecated)
+
 # 'rect': AxB
 Rect ← ⬚0↥ ↯⇌⊙1⊜⋕≠@x.°{∘}
 # 'rotate column': 'x=A by B'
@@ -34,3 +36,7 @@ Next □"rotate column x=1 by 1"
 Part₁ ← /+/+∧(Next): ↯6_50 0
 
 Part₁ ⊜□≠@\n.&fras "input.txt"
+
+Part₂ ← °¤ ⑄6_5∧(Next): ↯6_50 0
+# Prints it out, must be read manually
+≡&ims Part₂⊜□≠@\n.&fras "input.txt"
