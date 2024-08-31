@@ -1,30 +1,28 @@
-Decode ← ⊜□↧⊃(≠@,)(≠@\s).
-RotR ← ⁅⍜(ℂ°⊟|×ⁿ×i ηe)
-RotL ← ⁅⍜(ℂ°⊟|×ⁿ×i¯ηe)
+Decode ← ⊜□↧⊃(≠@,)(≠@\s). # ⊜□:⍜¤(:/↧≠", ".) also works
+RotR ← ⁅⍜(ℂ°⊟|×ⁿ×i¯ηe)
+RotL ← ⁅⍜(ℂ°⊟|×ⁿ×i ηe)
 
 # ========== PART 1 ============
 
 # Takes: `box"R2" -curr_dir- -curr_pos-`
+# Might be possible to inline
 Advance ← ⊙+:×,⋕⨬(⊙RotL|⊙RotR)=@R°⊂°□
 
-F ← (
-  °⊂         # Split head and tail of input line
-  ⊃(⊙⋅⊙∘|⋅∘) # Shuffle stack: head dir pos tail
-  Advance    # Advance
-  ⊃(⋅⋅∘|⊙∘)  # Shuffle back to do it again
-)
-
 Solve ← (
-  Decode :⊙: [0 1] [0 0] # Prepare inputs: list dir pos
-  ⍢(F|≠0⧻)               # Advance until we run out
-  /+⌵◌◌                  # Get distance (manhattan)
+  ⊙(0_1 0_0) Decode # Prepare inputs: list dir pos
+  ∧(Advance)        # Advance until we run out
+  /+⌵◌?             # Get distance (manhattan)
 )
 
+# ====== TESTS =======
 ⍤":3"=5 Solve "R2, L3"
 ⍤":3"=2 Solve "R2, R2, R2"
 ⍤":3"=12 Solve "R5, L5, R5, R3"
 
+# '291' with current input.txt
 $"Part one solution is: '_'" Solve ↘¯1 &fras "input.txt"
 
 # ========== PART 2 ============
-\+≡(×⊙⋕⨬([1 0]|[0 1])=@R?°⊂°□) Decode "R8, R4, R4, R8"
+# \+≡(×⊙⋕⨬([1 0]|[0 1])=@R?°⊂°□) Decode "R8, R4, R4, R8"
+
+# ∧(Advance?) ⊙(0_1 0_0) Decode "R5, L5, R5, R3"
