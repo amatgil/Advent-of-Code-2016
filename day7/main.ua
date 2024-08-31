@@ -1,4 +1,5 @@
-Check ← (
+# Experimental!
+HasTLS ← (
   ⊃(=@[⊢|⊜□↧⊃(≠@[|≠@]).)          # Split by hypernet
   ⨬(∘|⊂{"abcd"})                  # Assume we start outside of link, so pad with fake if it does
   ≡(/+≡(↧⊃(≍⇌.|¬/↧ ≡/≍ ◫2))◫4 °□) # Contains ABBA (but not AAAA)
@@ -9,11 +10,33 @@ Check ← (
 )
 
 # ======= TESTS =======
-⍤"Oop"=1 Check"abba[mnop]qrst"
-⍤"Oop"=0 Check"abcd[bddb]xyyx"
-⍤"Oop"=0 Check"aaaa[qwer]tyui"
-⍤"Oop"=1 Check"ioxxoj[asdfgh]zxcvbn"
+⍤"Oop"=1 HasTLS"abba[mnop]qrst"
+⍤"Oop"=0 HasTLS"abcd[bddb]xyyx"
+⍤"Oop"=0 HasTLS"aaaa[qwer]tyui"
+⍤"Oop"=1 HasTLS"ioxxoj[asdfgh]zxcvbn"
 # ====================
 
-Part₁ ← °□/+⍚Check⊜□≠@\n.
+Part₁ ← °□/+⍚HasTLS⊜□≠@\n.
 $"Part 1: '_'"Part₁ &fras "input.txt"
+
+# HasSSL = (
+#  ⊃(=@[⊢|⊜□↧⊃(≠@[|≠@]).)          # Split by hypernet
+#  ⨬(∘|⊂{"abcd"})                  # Assume we start outside of link, so pad with fake if it does
+#  ≡(
+#    ) # Contains ABBA (but not AAAA)
+#
+# )
+
+HasABA ← >0/+≡(↧↧⊃(=⊙◌°[⊙⊙∘]|⊙◌≠°[⊙⊙∘]|≍⇌.)) ◫3
+
+⍤"Bad ABA" ≍1 HasABA "aba"
+⍤"Bad ABA" ≍0 HasABA "baa"
+⍤"Bad ABA" ≍0 HasABA "aaa"
+
+{"zazbz" "bzb""cdb"}
+# {"aba" "bab" "xyz"}
+∵°□ ⍚(?⊸HasABA)
+◿2⇡⊸⧻ # top is mask of "where would a 1 be illegal", next is where abbas are
+¬>0/+◡↧
+# >0/+.↧
+# ⨬(∘|⊏⊚)?
