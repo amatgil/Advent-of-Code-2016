@@ -19,14 +19,15 @@ Part₂ ← (
   ∧Advance                # Advance until we run out
   ◌◌                      # Discard dir and final pos, leaving only visited lists
   ◫2                      # We're going to fill in the gaps between all pairs
-  ≡(                      # For each pair
-    /-.                   # Get delta and save for later
-    ⊃(⊢⊚≠0|/+)            # How far and which direction
-    ⊙(⇡+<0.)              # Place the zero to the correct axis, making sure the negatives don't off-by-one 
-    ⨬(⊙0|0)               # Order the axis properly, making sure to handle
-    ⊞⊂                    # Create all deltas
-    ⊙(¤⊢)                 # Fish out start position
-    □+                    # Add all deltas to start
+  ≡(
+    # For each pair
+    /-.        # Get delta and save for later
+    ⊃(⊢⊚≠0|/+) # How far and which direction
+    ⊙(⇡+<0.)   # Place the zero to the correct axis, making sure the negatives don't off-by-one 
+    ⨬(⊙0|0)    # Order the axis properly, making sure to handle
+    ⊞⊂         # Create all deltas
+    ⊙(¤⊢)      # Fish out start position
+    □+         # Add all deltas to start
   )
   /(⊂∩°□) # Make it one contiguous array
   ⊏⊢⊚¬◰.  # Get the first repeated element
@@ -45,3 +46,7 @@ $"Part one solution is: '_'" Part₁ ↘¯1 &fras "input.txt"
 
 # '159' with current input.txt
 $"Part two solution is: '_'" Part₂ ↘¯1 &fras "input.txt"
+
+F ← /×+⊙2
+
+F 1_2_3
