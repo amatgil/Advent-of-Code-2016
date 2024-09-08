@@ -15,9 +15,9 @@ Advance ← (
 # ========== PART 1 ============
 
 Part₁ ← (
-  ⊙(0_1 0_0 ¤0_0) Decode # Prepare inputs: list dir pos
-  ∧Advance               # Advance until we run out
-  /+⌵⊢⇌◌◌                # Get distance (manhattan) from last position
+  ⊙(0_1 0_0 ¤0_0) Decode # Prepare inputs: list dir pos visited
+  ∧Advance               # Advance all the way
+  /+⌵⋅⊙◌                 # Get distance (manhattan) from last position
 )
 
 # ========== PART 2 ============
@@ -53,7 +53,3 @@ $"Part one solution is: '_'" Part₁ ↘¯1 &fras "input.txt"
 
 # '159' with current input.txt
 $"Part two solution is: '_'" Part₂ ↘¯1 &fras "input.txt"
-
-F ← /×+⊙2
-
-F 1_2_3
