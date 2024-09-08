@@ -1,23 +1,30 @@
+# Experimental!
 Decode ← ⊜□↧⊃(≠@,)(≠@\s). # ⊜□:⍜¤(:/↧≠", ".) also works
-RotR ← ⁅⍜(ℂ°⊟|×ⁿ×i ηe)
-RotL ← ⁅⍜(ℂ°⊟|×ⁿ×i¯ηe)
+RotL ← ⍜°[°ℂ](×¯i)
+RotR ← ⍜°[°ℂ](×i) # Can be `×⊙i` if you want no parens lmao
 
-# newdir newpos newvisited ? instructions dir pos visited
-Advance ← ⊙(⊙(⊂:).)⊙+:×,⋕⨬(⊙RotL|⊙RotR)=@R°⊂°□
+# newdir newpos newvisited ? instruction dir pos visited
+# Advance ← ⊙(⊙(⊂:).)⊙+:×,⋕⨬(⊙RotL|⊙RotR)=@R°⊂°□
+Advance ← (
+  ⨬(⊙RotL|⊙RotR)=@R°⊂°□ # Rotate
+  ⊸×⋕                   # Get delta
+  ⊃(+⊙⋅∘|⋅⊙⋅∘)          # Add delta to current, keeping it
+  ⊙⟜¨⊂:                 # Join current to visited
+)
 
 # ========== PART 1 ============
 
 Part₁ ← (
-  ⊙(0_1 0_0 [0_0]) Decode # Prepare inputs: list dir pos
-  ∧Advance                # Advance until we run out
-  /+⌵⊢⇌◌◌                 # Get distance (manhattan) from last position
+  ⊙(0_1 0_0 ¤0_0) Decode # Prepare inputs: list dir pos
+  ∧Advance               # Advance until we run out
+  /+⌵⊢⇌◌◌                # Get distance (manhattan) from last position
 )
 
 # ========== PART 2 ============
 Part₂ ← (
   ⊙(0_1 0_0 [0_0]) Decode # Prepare inputs: list dir pos
   ∧Advance                # Advance until we run out
-  ◌◌                      # Discard dir and final pos, leaving only visited lists
+  ◌◌                      # Discard dir and final pos, leaving visited lists
   ◫2                      # We're going to fill in the gaps between all pairs
   ≡(
     # For each pair
